@@ -1,6 +1,6 @@
 package DTOs;
 
-import Models.Enums.ResponseStatus;
+import Models.Enums.Statuses.ResponseStatus;
 
 import java.util.Date;
 

@@ -2,8 +2,7 @@ package Controllers;
 
 import DTOs.IssueTicketRequestDTO;
 import DTOs.IssueTicketResponseDTO;
-import Models.Enums.ResponseStatus;
-import Models.Enums.Types.VehicleType;
+import Models.Enums.Statuses.ResponseStatus;
 import Models.Ticket;
 import Services.TicketService;
 
