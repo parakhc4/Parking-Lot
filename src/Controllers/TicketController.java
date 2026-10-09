@@ -2,6 +2,7 @@ package Controllers;
 
 import DTOs.IssueTicketRequestDTO;
 import DTOs.IssueTicketResponseDTO;
+import Models.Enums.ResponseStatus;
 import Models.Enums.Types.VehicleType;
 import Models.Ticket;
 import Services.TicketService;
@@ -36,8 +37,16 @@ public class TicketController {
                     requestDTO.getOwnerName(),
                     requestDTO.getVehicleType()
                     );
-        }catch(Exception e){
 
+            responseDTO.setTicketId(ticket.getId());
+            responseDTO.setTicketNumber(ticket.getNumber());
+            responseDTO.setEntryTime(ticket.getEntry());
+            responseDTO.setMessage("Ticket issued sucessfully");
+            responseDTO.setResponseStatus(ResponseStatus.SUCCESS);
+
+        }catch(Exception e){
+            System.out.println("Error in issuing ticket :"+e.getMessage());
+            e.printStackTrace();
         }
     }
 

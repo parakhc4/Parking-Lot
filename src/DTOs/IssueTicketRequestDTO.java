@@ -8,6 +8,7 @@ public class IssueTicketRequestDTO {
     private String ownerName;
     private String ownerNumber;
     private VehicleType vehicleType;
+    private Long regNo;
 
     public IssueTicketRequestDTO(Long operatorId, String vehicleNumber, String ownerName, String ownerNumber, VehicleType vehicleType) {
         this.operatorId = operatorId;
@@ -56,4 +57,5 @@ public class IssueTicketRequestDTO {
     public void setVehicleType(VehicleType vehicleType) {
         this.vehicleType = vehicleType;
     }
+
 }
