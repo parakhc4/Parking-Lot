@@ -1,7 +1,7 @@
-package Models.Enums.Strategies;
+package Strategies;
 
 
-import Models.Enums.Strategies.Enums.SlotAllocationStrategies;
+import Strategies.Enums.SlotAllocationStrategies;
 
 public class SlotAllocationStrategyFactory {
 

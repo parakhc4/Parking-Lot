@@ -1,4 +1,4 @@
-package Models.Enums.Strategies;
+package Strategies;
 
 import Models.Enums.Statuses.ParkingSlotStatus;
 import Models.Enums.Types.VehicleType;

@@ -31,7 +31,7 @@ public class TicketController {
         try{
             Ticket ticket = ticketService.issueTicket(
                     requestDTO.getOperatorId(),
-                    requestDTO.getRegNumber(),
+                    requestDTO.getOwnerName(),
                     requestDTO.getOwnerNumber(),
                     requestDTO.getOwnerName(),
                     requestDTO.getVehicleType()
@@ -39,7 +39,7 @@ public class TicketController {
 
             responseDTO.setTicketId(ticket.getId());
             responseDTO.setTicketNumber(ticket.getNumber());
-            responseDTO.setEntryTime(ticket.getEntry());
+            responseDTO.setEntryTime(ticket.getEntryTime());
             responseDTO.setMessage("Ticket issued sucessfully");
             responseDTO.setResponseStatus(ResponseStatus.SUCCESS);
 

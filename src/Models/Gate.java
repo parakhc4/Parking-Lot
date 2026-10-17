@@ -56,5 +56,3 @@ public class Gate extends BaseModel{
             this.status = status;
         }
     }
-
-}

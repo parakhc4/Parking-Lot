@@ -1,4 +1,4 @@
-package Models.Enums.Strategies.Enums;
+package Strategies.Enums;
 
 public enum SlotAllocationStrategies {
     RANDOM

@@ -1,4 +1,4 @@
-package Models.Enums.Strategies;
+package Strategies;
 
 public enum FeeCalculationStrategy {
 }

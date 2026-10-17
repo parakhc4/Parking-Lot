@@ -1,10 +1,20 @@
 package Models;
 
 import java.util.Date;
+import java.util.UUID;
 
 public class Ticket extends BaseModel{
     private String number;
-    private Date entry;
+    private Date entryTime;
+    private Gate gate;
+    private Operator operator;
+    private ParkingSlot parkingSlot;
+    private Vehicle vehicle;
+    private static int count;
+
+    public Ticket() {
+        setNumber(String.valueOf(++count)); // Unique number generator
+    }
 
     public String getNumber() {
         return number;
@@ -14,11 +24,44 @@ public class Ticket extends BaseModel{
         this.number = number;
     }
 
-    public Date getEntry() {
-        return entry;
+    public Date getEntryTime() {
+        return entryTime;
     }
 
-    public void setEntry(Date entry) {
-        this.entry = entry;
+    public void setEntryTime(Date entryTime) {
+        this.entryTime = entryTime;
+    }
+
+    public Gate getGate() {
+        return gate;
+    }
+
+    public void setGate(Gate gate) {
+        this.gate = gate;
+    }
+
+    public Operator getOperator() {
+        return operator;
+    }
+
+    public void setOperator(Operator operator) {
+        this.operator = operator;
+    }
+
+    public ParkingSlot getParkingSlot() {
+        return parkingSlot;
+    }
+
+    public void setParkingSlot(ParkingSlot parkingSlot) {
+        this.parkingSlot = parkingSlot;
+    }
+
+    public Vehicle getVehicle() {
+        return vehicle;
+    }
+
+    public void setVehicle(Vehicle vehicle) {
+        this.vehicle = vehicle;
     }
 }
+
