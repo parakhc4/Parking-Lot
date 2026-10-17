@@ -58,7 +58,7 @@ public class TicketService {
         ParkingLot parkingLot = gate.getParkingLot();
 
         // available slot - slot allocation strategy - parkingLot
-        ParkingSlot availableSlot = Slot
+        ParkingSlot availableSlot = null;
         // update the avl slot to filed
 
         // create and return a ticket
