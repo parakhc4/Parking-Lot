@@ -6,8 +6,7 @@ import Models.Enums.Statuses.ParkingSlotStatus;
 import Models.Enums.Types.GateType;
 import Models.Enums.Types.VehicleType;
 import Repository.InMemoryRepository;
-import Strategies.Enums.SlotAllocationStrategies;
-import Strategies.SlotAllocationStrategyFactory;
+import Strategies.SlotAllocation.SlotAllocationStrategyFactory;
 
 import java.util.Date;
 import java.util.List;

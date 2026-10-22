@@ -1,4 +1,4 @@
-package Strategies;
+package Strategies.SlotAllocation;
 
 import Models.Enums.Statuses.ParkingSlotStatus;
 import Models.Enums.Types.VehicleType;
@@ -7,7 +7,7 @@ import Models.ParkingSlot;
 import java.util.List;
 import java.util.Random;
 
-public class RandomSlotAllocationStrategy implements SlotAllotmentStrategy{
+public class RandomSlotAllocationStrategy implements SlotAllotmentStrategy {
 
     Random random = new Random();
     @Override

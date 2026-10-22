@@ -1,8 +1,7 @@
 package Models;
 
 import Strategies.Enums.SlotAllocationStrategies;
-import Strategies.FeeCalculationStrategy;
-import Strategies.SlotAllotmentStrategy;
+import Strategies.Enums.FeeCalculationStrategies;
 
 import java.util.List;
 
@@ -13,7 +12,7 @@ public class ParkingLot extends BaseModel{
     private List<Gate>entry_gate;
     private List<Gate>exit_gate;
 
-    private FeeCalculationStrategy fee_calculation_strategy;
+    private FeeCalculationStrategies fee_calculation_strategy;
     private SlotAllocationStrategies slot_allocation_strategy;
 
 
@@ -57,11 +56,11 @@ public class ParkingLot extends BaseModel{
         this.exit_gate = exit_gate;
     }
 
-    public FeeCalculationStrategy getFee_calculation_strategy() {
+    public FeeCalculationStrategies getFee_calculation_strategy() {
         return fee_calculation_strategy;
     }
 
-    public void setFee_calculation_strategy(FeeCalculationStrategy fee_calculation_strategy) {
+    public void setFee_calculation_strategy(FeeCalculationStrategies fee_calculation_strategy) {
         this.fee_calculation_strategy = fee_calculation_strategy;
     }
 
@@ -69,7 +68,7 @@ public class ParkingLot extends BaseModel{
         this.slot_allocation_strategy = slot_allocation_strategy;
     }
 
-    public ParkingLot(String name, List<ParkingFloor> floors, List<AllowedVehicle> allowed_Vehicles, List<Gate> entry_gate, List<Gate> exit_gate, FeeCalculationStrategy fee_calculation_strategy, SlotAllocationStrategies slot_allocation_strategy) {
+    public ParkingLot(String name, List<ParkingFloor> floors, List<AllowedVehicle> allowed_Vehicles, List<Gate> entry_gate, List<Gate> exit_gate, FeeCalculationStrategies fee_calculation_strategy, SlotAllocationStrategies slot_allocation_strategy) {
         this.name = name;
         this.floors = floors;
         this.allowed_Vehicles = allowed_Vehicles;

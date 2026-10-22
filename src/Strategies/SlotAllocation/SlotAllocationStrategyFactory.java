@@ -1,4 +1,4 @@
-package Strategies;
+package Strategies.SlotAllocation;
 
 
 import Strategies.Enums.SlotAllocationStrategies;

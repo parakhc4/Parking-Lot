@@ -1,4 +1,4 @@
-package Strategies;
+package Strategies.SlotAllocation;
 
 import Models.Enums.Types.VehicleType;
 import Models.ParkingSlot;
