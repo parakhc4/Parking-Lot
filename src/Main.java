@@ -13,10 +13,8 @@ public class Main {
          InMemoryRepository<Gate> gateDatabase = new InMemoryRepository<>();
         InMemoryRepository<Vehicle> vehicleDatabase = new InMemoryRepository<>();
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
-        }
+        DataGenerator dataGenerator = new DataGenerator(operatorDatabase,ticketDatabase,parkingSlotDatabase,parkingLotDatabase,parkingFloorDatabase,allowedVehicleDatabase,gateDatabase);
+        VehicleService vehicleService = new VehicleService(vehicleDatabase);
+        TicketService ticketService = new TicketService(operatorDatabase,ticketDatabase,parkingSlotDatabase,vehicleService);
     }
 }
