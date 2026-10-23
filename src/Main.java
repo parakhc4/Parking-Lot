@@ -11,6 +11,7 @@ public class Main {
          InMemoryRepository<ParkingFloor> parkingFloorDatabase = new InMemoryRepository<>();
          InMemoryRepository<AllowedVehicle> allowedVehicleDatabase = new InMemoryRepository<>();
          InMemoryRepository<Gate> gateDatabase = new InMemoryRepository<>();
+        InMemoryRepository<Vehicle> vehicleDatabase = new InMemoryRepository<>();
 
         for (int i = 1; i <= 5; i++) {
             //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
