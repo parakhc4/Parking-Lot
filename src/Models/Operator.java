@@ -5,6 +5,10 @@ public class Operator extends BaseModel{
     private String emp_id;
     private Gate gate;
 
+    public Operator(String name, String emp_id) {
+        this.name = name;
+        this.emp_id = emp_id;
+    }
 
     public String getName() {
         return name;
