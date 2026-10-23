@@ -1,6 +1,7 @@
 import Models.*;
 import Repository.InMemoryRepository;
 import Services.TicketService;
+import Services.VehicleService;
 
 public class Main {
     public static void main(String[] args) {
