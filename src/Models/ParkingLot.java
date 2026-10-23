@@ -15,6 +15,11 @@ public class ParkingLot extends BaseModel{
     private FeeCalculationStrategies fee_calculation_strategy;
     private SlotAllocationStrategies slot_allocation_strategy;
 
+    public ParkingLot(FeeCalculationStrategies fee_calculation_strategy, SlotAllocationStrategies slot_allocation_strategy, String name) {
+        this.fee_calculation_strategy = fee_calculation_strategy;
+        this.slot_allocation_strategy = slot_allocation_strategy;
+        this.name = name;
+    }
 
     public String getName() {
         return name;
