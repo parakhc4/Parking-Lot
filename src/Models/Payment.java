@@ -1,15 +1,16 @@
 package Models;
 
 import Models.Enums.Statuses.PaymentStatus;
+import Models.Enums.Types.PaymentModeType;
 
 public class Payment {
     private Bill bill;
     private String txn_id;
-    private PaymentMode mode;
+    private PaymentModeType mode;
     private Double amount;
     private PaymentStatus status;
 
-    public Payment(Bill bill, String txn_id, PaymentMode mode, Double amount, PaymentStatus status) {
+    public Payment(Bill bill, String txn_id, PaymentModeType mode, Double amount, PaymentStatus status) {
         this.bill = bill;
         this.txn_id = txn_id;
         this.mode = mode;
@@ -33,11 +34,11 @@ public class Payment {
         this.txn_id = txn_id;
     }
 
-    public PaymentMode getMode() {
+    public PaymentModeType getMode() {
         return mode;
     }
 
-    public void setMode(PaymentMode mode) {
+    public void setMode(PaymentModeType mode) {
         this.mode = mode;
     }
 

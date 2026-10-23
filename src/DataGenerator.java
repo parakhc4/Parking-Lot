@@ -61,12 +61,17 @@ public class DataGenerator {
         exitGate.setParkingLot(parkingLot);
 //        exitGate.setOperator();
 
+
         // 2 operators
         Operator entryOperator = new Operator("Amazon Google","B001");
         entryOperator.setGate(entryGate);
+        operatorDatabase.save(entryOperator);
+        System.out.println("Operator 1 ID : " + entryOperator.getId());
 
         Operator exitOperator = new Operator("Microsoft Zepto", "B002");
         exitOperator.setGate(exitGate);
+        operatorDatabase.save(exitOperator);
+        System.out.println("Operator 1 ID : " + exitOperator.getId());
 
 
         // allowed vehicles
@@ -96,8 +101,7 @@ public class DataGenerator {
         parkingSlotDatabase.save(parkingSlot2A);
         parkingSlotDatabase.save(parkingSlot2B);
 
-        operatorDatabase.save(entryOperator);
-        operatorDatabase.save(exitOperator);
+
 
         parkingFloorDatabase.save(parkingFloor1);
         parkingFloorDatabase.save(parkingFloor2);

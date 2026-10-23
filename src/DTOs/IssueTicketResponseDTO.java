@@ -11,6 +11,17 @@ public class IssueTicketResponseDTO {
     private String message;
     private ResponseStatus responseStatus;
 
+    @Override
+    public String toString() {
+        return "IssueTicketResponseDTO{" +
+                "ticketId=" + ticketId +
+                ", entryTime=" + entryTime +
+                ", ticketNumber='" + ticketNumber + '\'' +
+                ", message='" + message + '\'' +
+                ", responseStatus=" + responseStatus +
+                '}';
+    }
+
     public Long getTicketId() {
         return ticketId;
     }

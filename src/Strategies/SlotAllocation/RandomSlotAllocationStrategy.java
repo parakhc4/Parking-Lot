@@ -30,6 +30,6 @@ public class RandomSlotAllocationStrategy implements SlotAllotmentStrategy {
             }
         }
 
-        return new ParkingSlot();
+        return null;
     }
     }

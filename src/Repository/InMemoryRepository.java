@@ -9,12 +9,12 @@ public class InMemoryRepository<T extends BaseModel>{
     // LESSON : make T extend BaseModel so that
 
     Map<Long,T> store = new HashMap<>();
-    private static Long lastId = null;
+    private static Long lastId = 0l;
 
     public T save(T item){
         if (item.getId() == null) {
             // If item doesnt exist in DB just set a new id
-            item.setId(lastId++);
+            item.setId(++lastId);
         }
 
         if (item.getCreatedAt() == null){

@@ -24,7 +24,7 @@ public class TicketController {
         this.ticketService=ticketService;
     }
 
-    public IssueTicketResponseDTO issueTicket(IssueTicketRequestDTO requestDTO){
+    public IssueTicketResponseDTO issueTicket(IssueTicketRequestDTO requestDTO) throws RuntimeException{
 
         IssueTicketResponseDTO responseDTO = new IssueTicketResponseDTO();
         try{
@@ -43,8 +43,7 @@ public class TicketController {
             responseDTO.setResponseStatus(ResponseStatus.SUCCESS);
 
         }catch(Exception e){
-            System.out.println("Error in issuing ticket :"+e.getMessage());
-            e.printStackTrace();
+            throw new RuntimeException("No Available Parking Slots");
         }
 
         return responseDTO;

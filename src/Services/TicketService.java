@@ -25,7 +25,7 @@ public class TicketService {
 
     private VehicleService vehicleService;
 
-    public Ticket issueTicket(Long operatorId, String vehicleNumber, String ownerName, String ownerNumber, VehicleType vehicleType){
+    public Ticket issueTicket(Long operatorId, String vehicleNumber, String ownerName, String ownerNumber, VehicleType vehicleType) throws RuntimeException{
         /* TODO : Creating ticket logic goes here Fetch the operator from ID check if operator exists. Fetch the gate from the operator
     */
 
@@ -77,6 +77,10 @@ public class TicketService {
         ParkingSlot availableSlot = SlotAllocationStrategyFactory
                 .getStrategy(parkingLot.getSlot_allocation_strategy())
                 .findAvailableSlot(allParkingSlots,vehicleType);
+
+        if (availableSlot==null){
+            throw new RuntimeException("No Available Parking Slots");
+        }
         // update the avl slot to filed
         availableSlot.setStatus(ParkingSlotStatus.TAKEN);
 
