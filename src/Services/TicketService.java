@@ -12,6 +12,12 @@ import java.util.Date;
 import java.util.List;
 
 public class TicketService {
+    public TicketService(InMemoryRepository<Operator> operatorDatabase, InMemoryRepository<Ticket> ticketDatabase, InMemoryRepository<ParkingSlot> parkingSlotDatabase, VehicleService vehicleService) {
+        this.operatorDatabase = operatorDatabase;
+        this.ticketDatabase = ticketDatabase;
+        this.parkingSlotDatabase = parkingSlotDatabase;
+        this.vehicleService = vehicleService;
+    }
 
     private InMemoryRepository<Operator> operatorDatabase ;
     private InMemoryRepository<Ticket> ticketDatabase;
