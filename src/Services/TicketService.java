@@ -70,6 +70,8 @@ public class TicketService {
         // fetch parking lot from gate
         ParkingLot parkingLot = gate.getParkingLot();
 
+
+        // Critical Section
         // fetch all slots
         List<ParkingSlot> allParkingSlots = parkingSlotDatabase.findAll(); // TODO : find all by parking lot
 
@@ -83,6 +85,7 @@ public class TicketService {
         }
         // update the avl slot to filed
         availableSlot.setStatus(ParkingSlotStatus.TAKEN);
+        // Critical Section ends
 
         // create and return a ticket
         Ticket ticket = new Ticket();
