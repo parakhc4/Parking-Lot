@@ -25,15 +25,15 @@ public class TicketService {
 
     private VehicleService vehicleService;
 
-    public Ticket issueTicket(Long operatorId, String vehicleNumber, String ownerName, String ownerNumber, VehicleType vehicleType) throws RuntimeException{
+    public Ticket issueTicket(Long operatorId, String vehicleNumber, String ownerName, String ownerNumber, VehicleType vehicleType) throws RuntimeException {
         /* TODO : Creating ticket logic goes here Fetch the operator from ID check if operator exists. Fetch the gate from the operator
-    */
+         */
 
         // get the operator by id
         Operator operator = operatorDatabase.getById(operatorId);                                                   // TODO : Update findById to return optional ?
 
         // check if operator exists
-        if (operator == null){
+        if (operator == null) {
             throw new RuntimeException("Operator not found");
         }
 
@@ -53,18 +53,18 @@ public class TicketService {
 
 
         // check if gate exists and gate should be an entry gate
-        if (gate == null){
+        if (gate == null) {
             throw new RuntimeException("No valid gate found for operator");
         }
-        if (gate.getType().equals(GateType.EXIT)){
+        if (gate.getType().equals(GateType.EXIT)) {
             throw new IllegalArgumentException("Invalid gate for ticket creation.");
         }
-        if (!(gate.getStatus().equals(GateStatus.OPEN))){
+        if (!(gate.getStatus().equals(GateStatus.OPEN))) {
             throw new RuntimeException("Gate is closed or unoperational");
         }
 
         // find and create a vehicle
-        Vehicle vehicle = vehicleService.findOrCreate(vehicleNumber,ownerName,ownerNumber,vehicleType);
+        Vehicle vehicle = vehicleService.findOrCreate(vehicleNumber, ownerName, ownerNumber, vehicleType);
 
 
         // fetch parking lot from gate
@@ -72,20 +72,24 @@ public class TicketService {
 
 
         // Critical Section
-        // fetch all slots
-        List<ParkingSlot> allParkingSlots = parkingSlotDatabase.findAll(); // TODO : find all by parking lot
+        ParkingSlot availableSlot;
+        synchronized (this) {
+            // fetch all slots
+            List<ParkingSlot> allParkingSlots = parkingSlotDatabase.findAll(); // TODO : find all by parking lot
 
-        // available slot - slot allocation strategy - parkingLot
-        ParkingSlot availableSlot = SlotAllocationStrategyFactory
-                .getStrategy(parkingLot.getSlot_allocation_strategy())
-                .findAvailableSlot(allParkingSlots,vehicleType);
+            // available slot - slot allocation strategy - parkingLot
+            availableSlot = SlotAllocationStrategyFactory
+                    .getStrategy(parkingLot.getSlot_allocation_strategy())
+                    .findAvailableSlot(allParkingSlots, vehicleType);
 
-        if (availableSlot==null){
-            throw new RuntimeException("No Available Parking Slots");
+            if (availableSlot == null) {
+                throw new RuntimeException("No Available Parking Slots");
+            }
+            // update the avl slot to filed
+            availableSlot.setStatus(ParkingSlotStatus.TAKEN);
+            availableSlot = parkingSlotDatabase.save(availableSlot);
+            // Critical Section ends
         }
-        // update the avl slot to filed
-        availableSlot.setStatus(ParkingSlotStatus.TAKEN);
-        // Critical Section ends
 
         // create and return a ticket
         Ticket ticket = new Ticket();
